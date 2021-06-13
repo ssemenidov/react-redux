@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Form, Input, Button } from "antd";
 import { connect } from "react-redux";
-import { createPost } from "./actions";
+import { createPost } from "../redux/actions";
 const layout = {
     labelCol: {
         span: 8,
@@ -24,7 +24,6 @@ function PostForm(props) {
             title: values.title,
             id: Date.now().toString(),
         };
-        console.log(newPost);
         props.createPost(newPost);
         form.resetFields();
     };

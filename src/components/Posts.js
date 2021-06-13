@@ -10,7 +10,7 @@ function Posts({ posts }) {
             dataSource={posts}
             renderItem={(post) => (
                 <List.Item>
-                    <Post post={post}></Post>
+                    <Post post={post} key={post.id}></Post>
                 </List.Item>
             )}
         />
