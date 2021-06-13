@@ -13,10 +13,10 @@ function App() {
             </Row>
             <Row gutter={16}>
                 <Col span={12}>
-                    <Posts posts={[1, 2, 3]}></Posts>
+                    <Posts ></Posts>
                 </Col>
                 <Col span={12}>
-                    <FetchedPosts posts={[]}></FetchedPosts>
+                    <FetchedPosts ></FetchedPosts>
                 </Col>
             </Row>
         </div>

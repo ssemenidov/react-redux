@@ -1,5 +1,7 @@
 import React, { Component } from "react";
-import { Form, Input, Button, Checkbox, Divider } from "antd";
+import { Form, Input, Button } from "antd";
+import { connect } from "react-redux";
+import { createPost } from "./actions";
 const layout = {
     labelCol: {
         span: 8,
@@ -15,7 +17,7 @@ const tailLayout = {
     },
 };
 
-function PostForm() {
+function PostForm(props) {
     const [form] = Form.useForm();
     const onFinish = (values) => {
         const newPost = {
@@ -23,6 +25,7 @@ function PostForm() {
             id: Date.now().toString(),
         };
         console.log(newPost);
+        props.createPost(newPost);
         form.resetFields();
     };
     const onFinishFailed = (errorInfo) => {
@@ -60,4 +63,4 @@ function PostForm() {
     );
 }
 
-export default PostForm;
+export default connect(null, { createPost })(PostForm);

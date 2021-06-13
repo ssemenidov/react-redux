@@ -1,10 +1,8 @@
 import React from "react";
 import Post from "./Post";
 import { List } from "antd";
+import { connect } from "react-redux";
 function Posts({ posts }) {
-    if (!posts.length) {
-        return <p>No posts</p>;
-    }
     return (
         <List
             header={<h1>Posts</h1>}
@@ -18,5 +16,9 @@ function Posts({ posts }) {
         />
     );
 }
-
-export default Posts;
+const mapStateToProps = (state) => {
+    return {
+        posts: state.posts.posts,
+    };
+};
+export default connect(mapStateToProps)(Posts);
