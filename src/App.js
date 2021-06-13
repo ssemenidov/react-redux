@@ -1,25 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
-
+import React from "react";
+import FetchedPosts from "./components/FetchedPosts";
+import PostForm from "./components/PostForm";
+import Posts from "./components/Posts";
+import { Row, Col } from "antd";
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    return (
+        <div className="App" style={{ padding: "30px" }}>
+            <Row>
+                <Col span={18}>
+                    <PostForm></PostForm>
+                </Col>
+            </Row>
+            <Row gutter={16}>
+                <Col span={12}>
+                    <Posts posts={[1, 2, 3]}></Posts>
+                </Col>
+                <Col span={12}>
+                    <FetchedPosts posts={[]}></FetchedPosts>
+                </Col>
+            </Row>
+        </div>
+    );
 }
 
 export default App;
