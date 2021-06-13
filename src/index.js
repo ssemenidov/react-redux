@@ -3,12 +3,13 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { Provider } from "react-redux";
 import { compose, createStore, applyMiddleware } from "redux";
+import createSagaMiddleware from "redux-saga";
 import reportWebVitals from "./reportWebVitals";
 import { rootReducer } from "./redux/rootReducers";
 import thunk from "redux-thunk";
 import App from "./App";
 import "antd/dist/antd.css";
-
+const saga = createSagaMiddleware();
 const store = createStore(
     rootReducer,
     compose(
