@@ -22,6 +22,7 @@ function PostForm(props) {
     const onFinish = (values) => {
         const newPost = {
             title: values.title,
+            body: values.text,
             id: Date.now().toString(),
         };
         props.createPost(newPost);
@@ -40,6 +41,7 @@ function PostForm(props) {
             form={form}
             onFinish={onFinish}
             onFinishFailed={onFinishFailed}
+            className="Form"
         >
             <Form.Item
                 label="Title"
@@ -52,6 +54,18 @@ function PostForm(props) {
                 ]}
             >
                 <Input />
+            </Form.Item>
+            <Form.Item
+                label="Text"
+                name="text"
+                rules={[
+                    {
+                        required: false,
+                        message: "Please input your text",
+                    },
+                ]}
+            >
+                <Input.TextArea rows={3} />
             </Form.Item>
             <Form.Item {...tailLayout}>
                 <Button type="primary" htmlType="submit">
